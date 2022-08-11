@@ -1,4 +1,4 @@
-package com.praxis.dapconnect.controller;
+package com.praxis.dapconnect.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
