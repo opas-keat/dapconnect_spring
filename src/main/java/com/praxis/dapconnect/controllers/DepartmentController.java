@@ -3,12 +3,11 @@ package com.praxis.dapconnect.controllers;
 import com.praxis.dapconnect.domain.model.entity.Department;
 import com.praxis.dapconnect.services.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/departments")
@@ -17,12 +16,21 @@ public class DepartmentController {
     private DepartmentServiceImpl service;
 
     @GetMapping(value = "/")
-    public List<Department> getAllProduct(){
-        return service.getAllDepartment();
+    Page<Department> getAllProduct(
+        @PageableDefault(page = 0, size = 3)
+        Pageable pageable
+    ) {
+        Pageable paging = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize());
+        return service.getAllDepartment(paging);
     }
 
     @GetMapping(value = "/{id}")
-    public Department getProductById(@PathVariable Long id){
+    Department getProductById(@PathVariable Long id) {
         return service.getOneDepartment(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable Long id){
+        service.deleteDepartment(id);
     }
 }

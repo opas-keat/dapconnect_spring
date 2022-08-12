@@ -1,14 +1,17 @@
 package com.praxis.dapconnect.services;
 
 import com.praxis.dapconnect.domain.model.entity.Department;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface DepartmentService {
-    public List<Department> getAllDepartment();
+    public Page<Department> getAllDepartment(Pageable pageable);
+
+//    public Optional<NamesOnly> getAllDepartment2(Pageable pageable);
+
     public Department getOneDepartment(Long id);
-/*
-    public Product createProduct(Product product);
-    public boolean deleteProduct(Long id);
-*/
+
+    public Department createDepartment(Department department);
+    public boolean deleteDepartment(Long id);
+
 }

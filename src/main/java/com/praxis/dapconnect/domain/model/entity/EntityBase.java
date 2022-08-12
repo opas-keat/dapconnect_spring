@@ -1,6 +1,10 @@
 package com.praxis.dapconnect.domain.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -14,6 +18,7 @@ public abstract class EntityBase {
     @GeneratedValue(strategy= GenerationType.SEQUENCE,generator = "default_gen")
     private Long id;
 
+    @JsonIgnore
     @Column(name = "CREATED_BY", updatable = false,nullable = false)
     private String createdBy;
 
@@ -21,13 +26,16 @@ public abstract class EntityBase {
     @Column(name = "CREATED_TIME", updatable = false)
     private LocalDateTime createDateTime;
 
+    @JsonIgnore
     @Column(name = "UPDATED_BY")
     private String updatedBy;
 
+    @JsonIgnore
     @UpdateTimestamp
     @Column(name = "UPDATED_TIME")
     private LocalDateTime updateDateTime;
 
+    @JsonIgnore
     private boolean deleted = Boolean.FALSE;
 
 }
