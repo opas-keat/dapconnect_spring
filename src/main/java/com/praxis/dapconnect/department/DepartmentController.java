@@ -1,7 +1,5 @@
 package com.praxis.dapconnect.department;
 
-import com.praxis.dapconnect.department.Department;
-import com.praxis.dapconnect.department.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/departments")
 public class DepartmentController {
-    final private DepartmentServiceImpl service;
+    final private DepartmentService service;
 
     @Autowired
-    public DepartmentController(DepartmentServiceImpl service) {
+    public DepartmentController(DepartmentService service) {
         this.service = service;
     }
 
