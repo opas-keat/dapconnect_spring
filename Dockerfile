@@ -16,7 +16,8 @@ RUN mvn clean install -Dmaven.test.skip=true
 #Stage 2
 # set base image for second stage
 # FROM --platform=linux/amd64 eclipse-temurin:11.0.16_8-jre-alpine
-FROM --platform=linux/amd64 adoptopenjdk/openjdk11-openj9:x86_64-alpine-jre-11.0.16_8_openj9-0.33.0
+# FROM --platform=linux/amd64 adoptopenjdk/openjdk11-openj9:x86_64-alpine-jre-11.0.16_8_openj9-0.33.0
+FROM arm64v8/adoptopenjdk:11.0.10_9-jre-openj9-0.24.0
 # set deployment directory
 WORKDIR /opt/demo
 # copy over the built artifact from the maven image
