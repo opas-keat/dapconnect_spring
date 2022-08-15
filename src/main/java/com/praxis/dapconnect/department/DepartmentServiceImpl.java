@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
+    final private DepartmentRepository repository;
     @Autowired
-    private DepartmentRepository repository;
+    public DepartmentServiceImpl(DepartmentRepository repository) {
+        this.repository = repository;
+    }
 
-//    @Override
     public Page<Department> getAllDepartment(Pageable pageable) {
         return repository.findAll(pageable);
     }
