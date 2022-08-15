@@ -1,4 +1,4 @@
-package com.praxis.dapconnect.domain.model.entity;
+package com.praxis.dapconnect.share.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

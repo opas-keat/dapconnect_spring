@@ -1,8 +1,8 @@
 package com.praxis.dapconnect.data;
 
 import com.github.javafaker.Faker;
-import com.praxis.dapconnect.domain.model.entity.Department;
-import com.praxis.dapconnect.domain.model.repository.DepartmentRepository;
+import com.praxis.dapconnect.department.Department;
+import com.praxis.dapconnect.department.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.data.domain.PageRequest;

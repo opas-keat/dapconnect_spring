@@ -1,14 +1,15 @@
-package com.praxis.dapconnect.services;
+package com.praxis.dapconnect.department;
 
-import com.praxis.dapconnect.domain.model.entity.Department;
-import com.praxis.dapconnect.domain.model.repository.DepartmentRepository;
+import com.praxis.dapconnect.department.Department;
+import com.praxis.dapconnect.department.DepartmentRepository;
+import com.praxis.dapconnect.department.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
+public class DepartmentServiceImpl implements DepartmentService {
     @Autowired
     private DepartmentRepository repository;
 

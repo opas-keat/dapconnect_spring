@@ -1,14 +1,9 @@
 package com.praxis.dapconnect;
 
 import com.github.javafaker.Faker;
-import com.praxis.dapconnect.domain.model.entity.Department;
-import com.praxis.dapconnect.domain.model.repository.DepartmentRepository;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import java.util.Arrays;
 
 @SpringBootApplication
 public class DapconnectApplication {

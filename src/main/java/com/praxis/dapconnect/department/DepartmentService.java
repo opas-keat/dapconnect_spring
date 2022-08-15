@@ -1,6 +1,6 @@
-package com.praxis.dapconnect.services;
+package com.praxis.dapconnect.department;
 
-import com.praxis.dapconnect.domain.model.entity.Department;
+import com.praxis.dapconnect.department.Department;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

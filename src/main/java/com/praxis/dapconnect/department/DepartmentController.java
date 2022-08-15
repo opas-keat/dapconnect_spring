@@ -1,7 +1,7 @@
-package com.praxis.dapconnect.controllers;
+package com.praxis.dapconnect.department;
 
-import com.praxis.dapconnect.domain.model.entity.Department;
-import com.praxis.dapconnect.services.DepartmentServiceImpl;
+import com.praxis.dapconnect.department.Department;
+import com.praxis.dapconnect.department.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

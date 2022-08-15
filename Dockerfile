@@ -21,6 +21,7 @@ FROM --platform=linux/amd64 adoptopenjdk/openjdk11-openj9:x86_64-alpine-jre-11.0
 WORKDIR /opt/demo
 # copy over the built artifact from the maven image
 COPY --from=stage1 /opt/demo/target/springBootApp.jar /opt/demo/app.jar
+# run
 CMD java $JAVA_OPTIONS -jar /opt/demo/app.jar
 # FROM adoptopenjdk:11.0.11_9-jre-hotspot-focal as build
 # WORKDIR /workspace/app

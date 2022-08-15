@@ -1,9 +1,8 @@
-package com.praxis.dapconnect.domain.model.entity;
+package com.praxis.dapconnect.department;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.praxis.dapconnect.share.entity.EntityBase;
 import lombok.Data;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.*;
 
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
@@ -12,8 +11,16 @@ import javax.persistence.SequenceGenerator;
 @Entity
 @SequenceGenerator(name = "default_gen", sequenceName = "department_seq")
 @SQLDelete(sql = "UPDATE department SET deleted = true WHERE id=?")
-@Where(clause = "deleted=false")
-public class Department extends EntityBase{
+@Where(clause = "deleted = false")
+//@FilterDef(
+//        name = "deletedUserFilter",
+//        parameters = @ParamDef(name = "isDeleted", type = "boolean")
+//)
+//@Filter(
+//        name = "deletedUserFilter",
+//        condition = "deleted = :isDeleted"
+//)
+public class Department extends EntityBase {
     private String name;
 
     public Department() {
@@ -23,16 +30,4 @@ public class Department extends EntityBase{
         this.setName(name);
         this.setCreatedBy(createdBy);
     }
-
-    public Department(String name) {
-        this.setName(name);
-    }
-
 }
-
-
-
-//public interface DepartmentResult{
-//    String getId();
-//    String getName();
-//}
