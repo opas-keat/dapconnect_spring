@@ -30,8 +30,5 @@ public class SampleDataLoader implements CommandLineRunner {
                 )).collect(Collectors.toList());
 
         repository.saveAll(people);
-
-        Pageable paging = PageRequest.of(1, 3);
-//        repository.findAll(paging).forEach(System.out::println);
     }
 }

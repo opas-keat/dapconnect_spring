@@ -1,6 +1,5 @@
 package com.praxis.dapconnect.department;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -8,14 +7,12 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/departments")
 public class DepartmentController {
     final private DepartmentService service;
 
-    @Autowired
     public DepartmentController(DepartmentService service) {
         this.service = service;
     }
@@ -31,15 +28,12 @@ public class DepartmentController {
             Pageable pageable
     ) {
         Pageable paging = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize());
-        Page<Department> departments = service.getAllDepartment(paging);
-        return departments;
+        return service.getAllDepartment(paging);
     }
 
     @GetMapping(value = "/{id}")
     Department getProductById(@PathVariable Long id) {
-//        Optional<Department> opt = Optional.ofNullable(service.getOneDepartment(id));
-        Department oneDepartment = service.getOneDepartment(id);
-        return oneDepartment;
+        return service.getOneDepartment(id);
     }
 
     @DeleteMapping("/{id}")
