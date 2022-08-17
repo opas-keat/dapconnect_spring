@@ -8,6 +8,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/departments")
@@ -35,9 +36,8 @@ public class DepartmentController {
     }
 
     @GetMapping(value = "/{id}")
-    Department getProductById(@PathVariable Long id) {
-        Department department = service.getOneDepartment(id);
-        return department;
+    Optional<Department> getProductById(@PathVariable Long id) {
+        return service.getOneDepartment(id);
     }
 
     @DeleteMapping("/{id}")

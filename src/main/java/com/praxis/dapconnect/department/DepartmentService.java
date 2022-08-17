@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class DepartmentService {
     final private DepartmentRepository repository;
@@ -22,9 +24,10 @@ public class DepartmentService {
 //        return repository.findByName(pageable);
 //    }
 
-    public Department getOneDepartment(Long id) {
-        Department department = repository.findById(id).get();
-        return department;
+    public Optional<Department> getOneDepartment(Long id) {
+//        Department department = repository.findById(id).get();
+        Optional<Department> opt = Optional.ofNullable(repository.findById(id).get());
+        return opt;
     }
 
     public Department createDepartment(Department department) {
