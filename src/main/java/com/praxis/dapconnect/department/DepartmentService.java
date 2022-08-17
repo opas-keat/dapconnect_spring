@@ -19,8 +19,7 @@ public class DepartmentService {
     }
 
     public Optional<Department> findById(Long id) {
-        Optional<Department> result = this.repository.findById(id);
-        return result;
+        return this.repository.findById(id);
     }
 
     public Department createDepartment(Department department) {
