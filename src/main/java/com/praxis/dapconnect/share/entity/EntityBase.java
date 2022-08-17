@@ -1,10 +1,7 @@
 package com.praxis.dapconnect.share.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -15,11 +12,11 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public abstract class EntityBase {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE,generator = "default_gen")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "default_gen")
     private Long id;
 
     @JsonIgnore
-    @Column(name = "CREATED_BY", updatable = false,nullable = false)
+    @Column(name = "CREATED_BY", updatable = false, nullable = false)
     private String createdBy;
 
     @CreationTimestamp

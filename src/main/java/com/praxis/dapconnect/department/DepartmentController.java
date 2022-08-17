@@ -1,5 +1,6 @@
 package com.praxis.dapconnect.department;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,22 +18,29 @@ public class DepartmentController {
         this.service = service;
     }
 
+    @GetMapping("/version")
+    public String version() {
+        return "The actual version is 1.0.0";
+    }
+
     @GetMapping(value = "/")
     Page<Department> getAllProduct(
-        @PageableDefault(page = 0, size = 3)
-        Pageable pageable
+            @PageableDefault(page = 0, size = 3) @NotNull
+            Pageable pageable
     ) {
         Pageable paging = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize());
-        return service.getAllDepartment(paging);
+        Page<Department> departments = service.getAllDepartment(paging);
+        return departments;
     }
 
     @GetMapping(value = "/{id}")
     Department getProductById(@PathVariable Long id) {
-        return service.getOneDepartment(id);
+        Department department = service.getOneDepartment(id);
+        return department;
     }
 
     @DeleteMapping("/{id}")
-    public void deleteProduct(@PathVariable Long id){
+    public void deleteProduct(@PathVariable Long id) {
         service.deleteDepartment(id);
     }
 }

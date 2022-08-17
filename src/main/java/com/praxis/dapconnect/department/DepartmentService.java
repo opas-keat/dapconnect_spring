@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DepartmentService {
     final private DepartmentRepository repository;
+
     @Autowired
     public DepartmentService(DepartmentRepository repository) {
         this.repository = repository;
