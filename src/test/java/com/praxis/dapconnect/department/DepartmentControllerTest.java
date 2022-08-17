@@ -34,6 +34,7 @@ class DepartmentControllerTest {
 
     @Test
     void deleteProduct() {
-        assertEquals(true, true);
+        departmentController.deleteDepartmentById(Long.valueOf("1"));
+//        assertDoesNotThrow();
     }
 }
