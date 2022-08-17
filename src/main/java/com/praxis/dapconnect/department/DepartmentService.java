@@ -24,10 +24,13 @@ public class DepartmentService {
 //        return repository.findByName(pageable);
 //    }
 
-    public Optional<Department> getOneDepartment(Long id) {
+    public Department getOneDepartment(Long id) {
 //        Department department = repository.findById(id).get();
         Optional<Department> opt = Optional.ofNullable(repository.findById(id).get());
-        return opt;
+        if(opt.isPresent()){
+            return opt.get();
+        }
+        return new Department();
     }
 
     public Department createDepartment(Department department) {

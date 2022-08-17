@@ -36,8 +36,10 @@ public class DepartmentController {
     }
 
     @GetMapping(value = "/{id}")
-    Optional<Department> getProductById(@PathVariable Long id) {
-        return service.getOneDepartment(id);
+    Department getProductById(@PathVariable Long id) {
+//        Optional<Department> opt = Optional.ofNullable(service.getOneDepartment(id));
+        Department oneDepartment = service.getOneDepartment(id);
+        return oneDepartment;
     }
 
     @DeleteMapping("/{id}")
