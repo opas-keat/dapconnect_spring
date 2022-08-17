@@ -25,9 +25,9 @@ public class Department extends EntityBase {
 
     public Department() {
     }
-
     public Department(String name, String createdBy) {
         this.setName(name);
         this.setCreatedBy(createdBy);
     }
+
 }

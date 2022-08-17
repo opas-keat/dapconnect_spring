@@ -16,4 +16,16 @@ class DepartmentControllerTest {
     void version() {
         assertEquals( "The actual version is 1.0.0", departmentController.version());
     }
+
+    @Test
+    void getAllProduct() {
+    }
+
+    @Test
+    void getDepartmentById() {
+    }
+
+    @Test
+    void deleteProduct() {
+    }
 }
