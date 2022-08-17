@@ -4,14 +4,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/departments")
 public class DepartmentController {
-    final private DepartmentService service;
+    private final DepartmentService service;
 
     public DepartmentController(DepartmentService service) {
         this.service = service;
@@ -32,8 +34,9 @@ public class DepartmentController {
     }
 
     @GetMapping(value = "/{id}")
-    Department getProductById(@PathVariable Long id) {
-        return service.getOneDepartment(id);
+    Department getDepartmentById(@PathVariable Long id) {
+        Optional<Department> departmentOpt = service.findById(id);
+        return departmentOpt.orElse(new Department());
     }
 
     @DeleteMapping("/{id}")

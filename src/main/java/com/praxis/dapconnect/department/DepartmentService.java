@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Service
 public class DepartmentService {
-    final private DepartmentRepository repository;
+    private final DepartmentRepository repository;
 
     public DepartmentService(DepartmentRepository repository) {
         this.repository = repository;
@@ -18,12 +18,9 @@ public class DepartmentService {
         return repository.findAll(pageable);
     }
 
-    public Department getOneDepartment(Long id) {
-        Optional<Department> opt = Optional.ofNullable(repository.findById(id).get());
-        if (opt.isPresent()) {
-            return opt.get();
-        }
-        return new Department();
+    public Optional<Department> findById(Long id) {
+        Optional<Department> result = this.repository.findById(id);
+        return result;
     }
 
     public Department createDepartment(Department department) {

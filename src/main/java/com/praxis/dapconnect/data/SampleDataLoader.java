@@ -5,8 +5,6 @@ import com.praxis.dapconnect.department.Department;
 import com.praxis.dapconnect.department.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -23,7 +21,7 @@ public class SampleDataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 // create 100 rows of people in the database
-        List<Department> people = IntStream.rangeClosed(1,10)
+        List<Department> people = IntStream.rangeClosed(1, 10)
                 .mapToObj(i -> new Department(
                         faker.name().firstName(),
                         "admin"
