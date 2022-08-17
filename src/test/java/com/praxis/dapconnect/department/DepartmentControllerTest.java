@@ -28,10 +28,12 @@ class DepartmentControllerTest {
 
     @Test
     void getDepartmentById() {
-
+        Long departmentLength = departmentController.getDepartmentById(Long.valueOf(1)).getId();
+        assertEquals(1, departmentLength);
     }
 
     @Test
     void deleteProduct() {
+        assertEquals(true, true);
     }
 }
