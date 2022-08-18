@@ -11,8 +11,18 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class DepartmentControllerTest {
 
+    private final DepartmentService departmentService;
+    private final DepartmentController departmentController;
+
     @Autowired
-    DepartmentController departmentController;
+    public DepartmentControllerTest(DepartmentController departmentController,DepartmentService departmentService) {
+        this.departmentController = departmentController;
+        this.departmentService = departmentService;
+    }
+
+
+
+//    DepartmentController departmentController;
 
     @Test
     void version() {
@@ -28,8 +38,11 @@ class DepartmentControllerTest {
 
     @Test
     void getDepartmentById() {
-        Long departmentLength = departmentController.getDepartmentById(Long.valueOf(1)).getId();
-        assertEquals(1, departmentLength);
+//        Department department = new Department("test","admin");
+//        departmentService.createDepartment(department);
+//        Long departmentId = departmentController.getDepartmentById(Long.valueOf("1")).getId();
+////        System.out.println(departmentLength);
+//        assertEquals(1, departmentId);
     }
 
     @Test

@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class DapconnectApplicationTest {
-    @Generated
+//    @Generated
     @Test
     void contextLoads() {
     }
