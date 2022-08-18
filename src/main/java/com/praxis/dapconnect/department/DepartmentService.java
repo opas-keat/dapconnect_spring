@@ -26,7 +26,6 @@ public class DepartmentService {
         return repository.save(department);
     }
 
-
     public boolean deleteDepartment(Long id) {
         repository.deleteById(id);
         return true;
