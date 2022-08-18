@@ -2,13 +2,19 @@ package com.praxis.dapconnect.department;
 
 import com.praxis.dapconnect.share.entity.EntityBase;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @SequenceGenerator(name = "default_gen", sequenceName = "department_seq")
 @SQLDelete(sql = "UPDATE department SET deleted = true WHERE id=?")
@@ -23,9 +29,6 @@ import javax.persistence.SequenceGenerator;
 //)
 public class Department extends EntityBase {
     private String name;
-
-    public Department() {
-    }
 
     public Department(String name, String createdBy) {
         this.setName(name);

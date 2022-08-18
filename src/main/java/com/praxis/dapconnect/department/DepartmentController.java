@@ -1,9 +1,12 @@
 package com.praxis.dapconnect.department;
 
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
@@ -21,6 +24,18 @@ public class DepartmentController {
     @GetMapping("/version")
     public String version() {
         return "The actual version is 1.0.0";
+    }
+
+    @PostMapping(value = "/")
+    public ResponseEntity<Department> createTutorial(@RequestBody Department department) {
+        try {
+//            Department _tutorial = service
+//                    .save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), false));
+//            return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping(value = "/")
