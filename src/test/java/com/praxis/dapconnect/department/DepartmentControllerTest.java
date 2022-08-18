@@ -33,7 +33,7 @@ class DepartmentControllerTest {
     }
 
     @Test
-    void deleteProduct() {
+    void deleteDepartmentById() {
         departmentController.deleteDepartmentById(Long.valueOf("1"));
 //        assertDoesNotThrow();
     }
