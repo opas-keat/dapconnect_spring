@@ -57,12 +57,12 @@ public class Content extends EntityBase {
     @Pattern(regexp="^[\\w-_. ]+$", message = "subject must be a string")
     private String subject;
 
-    @Column(length = 255)
+    @Column()
     @Size(max = 255)
     @Pattern(regexp="^[\\w-_. ]+$", message = "subject must be a string")
     private String description;
 
-    @Column(length = 255)
+    @Column()
     @Size(max = 255)
     @Pattern(regexp="^[\\w-_. ]+$", message = "subject must be a string")
     private String reference;
@@ -75,7 +75,7 @@ public class Content extends EntityBase {
     @Size(min = 1, max = 1000)
     private String sendTo;
 
-    @Column(length = 255)
+    @Column()
     @Size(max = 255)
     @Pattern(regexp="^[\\w-_. ]+$", message = "subject must be a string")
     private String attachment;
