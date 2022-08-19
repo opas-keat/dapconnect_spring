@@ -1,9 +1,10 @@
 package com.praxis.dapconnect.module.content;
 
-import com.praxis.dapconnect.exception.RecordNotFoundException;
+import com.praxis.dapconnect.exception.ResourceNotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,32 +45,29 @@ public class ContentService {
     }
 
     List<Content> createAll(List<Content> contents) {
-        return (List<Content>)repository.saveAll(contents);
+        return (List<Content>) repository.saveAll(contents);
     }
 
-    Content find(Long id) throws RecordNotFoundException {
-        Optional<Content> content = repository.findById(id);
-        if (content.isPresent()) {
-            return content.get();
-        } else {
-            throw new RecordNotFoundException("No record exist for given id");
-        }
+    Optional<Content> findById(Long id) {
+        return repository.findById(id);
     }
 
-    List<Content> findAll() {
-        List<Content> list = new ArrayList<>();
-        Iterable<Content> items = repository.findAll();
-        items.forEach(list::add);
-        return list;
+//    Content findById(Long id){
+//        return repository.findById(id).orElseThrow(EntityNotFoundException::new);
+//    }
+
+    Page<Content> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
+//        List<Content> list = new ArrayList<>();
+//        Iterable<Content> items = repository.findAll();
+//        items.forEach(list::add);
+//        return list;
     }
 
-    void delete(Long id) throws RecordNotFoundException {
-        Optional<Content> content = repository.findById(id);
-        if (content.isPresent()) {
-            repository.deleteById(id);
-        } else {
-            throw new RecordNotFoundException("No record exist for given id");
-        }
+    void delete(Long id) {
+        Content content = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Content with ID :" + id + " Not Found!"));
+        repository.deleteById(content.getId());
     }
 
 }

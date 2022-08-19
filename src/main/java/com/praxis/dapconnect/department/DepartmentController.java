@@ -1,6 +1,5 @@
 package com.praxis.dapconnect.department;
 
-import org.springframework.boot.ApplicationArguments;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/departments")
@@ -47,11 +45,20 @@ public class DepartmentController {
         return service.getAllDepartment(paging);
     }
 
-    @GetMapping(value = "/{id}")
-    Department getDepartmentById(@PathVariable Long id) {
-        Optional<Department> departmentOpt = service.findById(id);
-        return departmentOpt.orElse(new Department());
-    }
+//    @GetMapping(value = "/{id}")
+//    ResponseEntity getDepartmentById(@PathVariable Long id) {
+//        Optional<Department> optional = service.findById(id);
+//        if (optional.isPresent()) {
+//            Department department = optional.get();
+//            SuccessResponse<Department> response = new SuccessResponse<>();
+//            response.setData(department);
+//            response.setBusinessCode("-");
+//            return ResponseEntity.ok(response);
+//        }
+//
+////        new ResourceNotFoundException("User with ID :"+id+" Not Found!");
+//        return optional.orElse(new Department());
+//    }
 
     @DeleteMapping("/{id}")
     void deleteDepartmentById(@PathVariable Long id) {
