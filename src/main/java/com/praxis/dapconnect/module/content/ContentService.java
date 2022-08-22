@@ -5,7 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -44,24 +43,12 @@ public class ContentService {
         }
     }
 
-    List<Content> createAll(List<Content> contents) {
-        return (List<Content>) repository.saveAll(contents);
-    }
-
     Optional<Content> findById(Long id) {
         return repository.findById(id);
     }
 
-//    Content findById(Long id){
-//        return repository.findById(id).orElseThrow(EntityNotFoundException::new);
-//    }
-
     Page<Content> findAll(Pageable pageable) {
         return repository.findAll(pageable);
-//        List<Content> list = new ArrayList<>();
-//        Iterable<Content> items = repository.findAll();
-//        items.forEach(list::add);
-//        return list;
     }
 
     void delete(Long id) {
