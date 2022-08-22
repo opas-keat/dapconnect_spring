@@ -1,8 +1,8 @@
 package com.praxis.dapconnect.data;
 
 import com.github.javafaker.Faker;
-import com.praxis.dapconnect.department.Department;
-import com.praxis.dapconnect.department.DepartmentRepository;
+import com.praxis.dapconnect.module.department.Department;
+import com.praxis.dapconnect.module.department.DepartmentRepository;
 import com.praxis.dapconnect.module.content.Content;
 import com.praxis.dapconnect.module.content.ContentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,13 +28,14 @@ public class SampleDataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 // create 100 rows of people in the database
-        List<Department> departments = IntStream.rangeClosed(1, 10)
-                .mapToObj(i -> new Department(
-                        this.faker.name().firstName(),
-                        "admin"
-                )).collect(Collectors.toList());
-
-        departmentRepository.saveAll(departments);
+//        List<Department> departments = IntStream.rangeClosed(1, 1)
+//                .mapToObj(i -> new Department(
+//                        this.faker.name().firstName(),
+//                        "admin",
+//                        Long.parseLong("0")
+//                )).collect(Collectors.toList());
+//
+//        departmentRepository.saveAll(departments);
 
         List<Content> contents = IntStream.rangeClosed(1, 1)
                 .mapToObj(i -> new Content(

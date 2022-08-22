@@ -1,4 +1,4 @@
-package com.praxis.dapconnect.department;
+package com.praxis.dapconnect.module.department;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
